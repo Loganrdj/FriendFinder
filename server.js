@@ -1,27 +1,23 @@
 // Dependencies
-var http = require("http");
-var fs = require("fs");
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
+// const routes = require("./app/routing");
 
-// Set our port to 8080
-var PORT = 8080;
+// // Set our port to 8080
+var PORT = process.env.PORT || 8080;
 
-// Create our server
-var server = http.createServer(handleRequest);
+// // Create our server
+app.use(bodyParser.urlencoded({
+  extended: true,
+}))
 
-// Create a function for handling the requests and responses coming into our server
-function handleRequest(req, res) {
+app.use(bodyParser.json())
 
-  // Here we use the fs package to read our index.html file
-  fs.readFile(__dirname + "/home.html", function(err, data) {
-    if (err) throw err;
-    // We then respond to the client with the HTML page by specifically telling the browser that we are delivering
-    // an html file.
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.end(data);
-  });
-}
+require("./app/routing/apiRoutes")(app) //Adding route into the express activeness
 
-// Starts our server
-server.listen(PORT, function() {
-  console.log("Server is listening on PORT: " + PORT);
-});
+require("./app/routing/htmlRoutes.js")(app) //Adding route into the express activeness
+
+app.listen(PORT, function(){
+  console.log(`App listening on port ${PORT}`)
+})

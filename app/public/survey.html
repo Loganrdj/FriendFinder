@@ -14,114 +14,148 @@
 </head>
 <body>
     <div class="container">
-        <h2>Survey Questions</h2>
-        <hr class="my-4">
-        <h3>About You</h3>
-        <h5>Name (Required)</h5>
-        <input class="form-control" type="text" id="name" required>
-        <h5>Link to Photo Image (Required)</h5>
-        <input class="form-control" type="text" id="photo" required>
-        <hr class="my-4">
-        <h3>Question 1</h3>
-        <h4>QUESTION HERE</h4>
-        <select class="chosen-select" id="question1">
-            <option value="unanswered" label="Select an Option"></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>   
-        </select>
-        <h3>Question 2</h3>
-        <h4>QUESTION HERE</h4>
-        <select class="chosen-select" id="question2">
-            <option value="unanswered" label="Select an Option"></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>   
-        </select>
-        <h3>Question 3</h3>
-        <h4>QUESTION HERE</h4>
-        <select class="chosen-select" id="question3">
-            <option value="unanswered" label="Select an Option"></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>   
-        </select>
-        <h3>Question 4</h3>
-        <h4>QUESTION HERE</h4>
-        <select class="chosen-select" id="question4">
-            <option value="unanswered" label="Select an Option"></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>   
-        </select>
-        <h3>Question 5</h3>
-        <h4>QUESTION HERE</h4>
-        <select class="chosen-select" id="question5">
-            <option value="unanswered" label="Select an Option"></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>   
-        </select>
-        <h3>Question 6</h3>
-        <h4>QUESTION HERE</h4>
-        <select class="chosen-select" id="question6">
-            <option value="unanswered" label="Select an Option"></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>   
-        </select>
-        <h3>Question 7</h3>
-        <h4>QUESTION HERE</h4>
-        <select class="chosen-select" id="question7">
-            <option value="unanswered" label="Select an Option"></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>   
-        </select>
-        <h3>Question 8</h3>
-        <h4>QUESTION HERE</h4>
-        <select class="chosen-select" id="question8">
-            <option value="unanswered" label="Select an Option"></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>   
-        </select>
-        <h3>Question 9</h3>
-        <h4>QUESTION HERE</h4>
-        <select class="chosen-select" id="question9">
-            <option value="unanswered" label="Select an Option"></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>   
-        </select>
-        <h3>Question 10</h3>
-        <h4>QUESTION HERE</h4>
-        <select class="chosen-select" id="question10">
-            <option value="unanswered" label="Select an Option"></option>
-            <option value="1">1 (Strongly Disagree)</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5 (Strongly Agree)</option>   
-        </select>
+        <form action="/survey/submit" method="POST">
+            <h2>Survey Questions</h2>
+            <hr class="my-4">
+            <h3>About You</h3>
+            <h5>Name (Required)</h5>
+            <input class="form-control" type="text" id="name" required>
+            <h5>Link to Photo Image (Required)</h5>
+            <input class="form-control" type="text" id="photo" required>
+            <hr class="my-4">
+            <h3>Question 1</h3>
+            <h4>QUESTION HERE</h4>
+            <select class="chosen-select" id="question1">
+                <option value="unanswered" label="Select an Option"></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>   
+            </select>
+            <h3>Question 2</h3>
+            <h4>QUESTION HERE</h4>
+            <select class="chosen-select" id="question2">
+                <option value="unanswered" label="Select an Option"></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>   
+            </select>
+            <h3>Question 3</h3>
+            <h4>QUESTION HERE</h4>
+            <select class="chosen-select" id="question3">
+                <option value="unanswered" label="Select an Option"></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>   
+            </select>
+            <h3>Question 4</h3>
+            <h4>QUESTION HERE</h4>
+            <select class="chosen-select" id="question4">
+                <option value="unanswered" label="Select an Option"></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>   
+            </select>
+            <h3>Question 5</h3>
+            <h4>QUESTION HERE</h4>
+            <select class="chosen-select" id="question5">
+                <option value="unanswered" label="Select an Option"></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>   
+            </select>
+            <h3>Question 6</h3>
+            <h4>QUESTION HERE</h4>
+            <select class="chosen-select" id="question6">
+                <option value="unanswered" label="Select an Option"></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>   
+            </select>
+            <h3>Question 7</h3>
+            <h4>QUESTION HERE</h4>
+            <select class="chosen-select" id="question7">
+                <option value="unanswered" label="Select an Option"></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>   
+            </select>
+            <h3>Question 8</h3>
+            <h4>QUESTION HERE</h4>
+            <select class="chosen-select" id="question8">
+                <option value="unanswered" label="Select an Option"></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>   
+            </select>
+            <h3>Question 9</h3>
+            <h4>QUESTION HERE</h4>
+            <select class="chosen-select" id="question9">
+                <option value="unanswered" label="Select an Option"></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>   
+            </select>
+            <h3>Question 10</h3>
+            <h4>QUESTION HERE</h4>
+            <select class="chosen-select" id="question10">
+                <option value="unanswered" label="Select an Option"></option>
+                <option value="1">1 (Strongly Disagree)</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 (Strongly Agree)</option>   
+            </select>
+            <br><br>
+            <a class="btn btn-primary btn-lg" type="submit" id="submitbutton" role="button"> Submit </a>
+        </form>
     </div>
+    
 </body>
+<script type="text/javascript">
+    $("#submitbutton").on("click", function(){
+        dataSend = {
+        name: $("#name").val(),
+        photo: $("#photo").val(),
+        answerArr: 
+            [
+            $("#question1").val(),
+            $("#question2").val(),
+            $("#question3").val(),
+            $("#question4").val(),
+            $("#question5").val(),
+            $("#question6").val(),
+            $("#question7").val(),
+            $("#question8").val(),
+            $("#question9").val(),
+            $("#question10").val()
+            ]
+        }
+        $.post("/api/friends", dataSend, function(){
+            console.log(dataSend)
+        })
+    })
+    
+
+        
+    
+    
+</script>
 </html>
