@@ -29,10 +29,10 @@ module.exports = function(app){
         for(let j = 0; j < friends.length; j++){ //Loop through all friends
             compareScore = 0;
             for(let i = 0; i < dataMatch.scores.length; i++){ //Loop through the scores
-                if(dataMatch.scores[i] == friends[j].scores[i]){
+                if(parseInt(dataMatch.scores[i]) == parseInt(friends[j].scores[i])){
                     compareScore += 5;
                 } else{
-                    compareScore += 5 - Math.abs(dataMatch.scores[i] - friends[j].scores[i])
+                    compareScore += 5 - Math.abs(parseInt(dataMatch.scores[i]) - parseInt(friends[j].scores[i]))
                 }
             }
             if(compareScore > bestMatch.closenessScore){
