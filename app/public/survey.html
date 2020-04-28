@@ -13,6 +13,7 @@
     <title>Survey</title>
 </head>
 <body>
+    <div class="answerDiv"></div>
     <div class="container">
         <form action="/survey/submit" method="POST">
             <h2>Survey Questions</h2>
@@ -25,7 +26,7 @@
             <hr class="my-4">
             <h3>Question 1</h3>
             <h4>QUESTION HERE</h4>
-            <select class="chosen-select" id="question1">
+            <select class="chosen-select" id="question1" required>
                 <option value="unanswered" label="Select an Option"></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -35,7 +36,7 @@
             </select>
             <h3>Question 2</h3>
             <h4>QUESTION HERE</h4>
-            <select class="chosen-select" id="question2">
+            <select class="chosen-select" id="question2" required>
                 <option value="unanswered" label="Select an Option"></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -45,7 +46,7 @@
             </select>
             <h3>Question 3</h3>
             <h4>QUESTION HERE</h4>
-            <select class="chosen-select" id="question3">
+            <select class="chosen-select" id="question3" required>
                 <option value="unanswered" label="Select an Option"></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -55,7 +56,7 @@
             </select>
             <h3>Question 4</h3>
             <h4>QUESTION HERE</h4>
-            <select class="chosen-select" id="question4">
+            <select class="chosen-select" id="question4" required>
                 <option value="unanswered" label="Select an Option"></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -65,7 +66,7 @@
             </select>
             <h3>Question 5</h3>
             <h4>QUESTION HERE</h4>
-            <select class="chosen-select" id="question5">
+            <select class="chosen-select" id="question5" required>
                 <option value="unanswered" label="Select an Option"></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -75,7 +76,7 @@
             </select>
             <h3>Question 6</h3>
             <h4>QUESTION HERE</h4>
-            <select class="chosen-select" id="question6">
+            <select class="chosen-select" id="question6" required>
                 <option value="unanswered" label="Select an Option"></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -85,7 +86,7 @@
             </select>
             <h3>Question 7</h3>
             <h4>QUESTION HERE</h4>
-            <select class="chosen-select" id="question7">
+            <select class="chosen-select" id="question7" required>
                 <option value="unanswered" label="Select an Option"></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -95,7 +96,7 @@
             </select>
             <h3>Question 8</h3>
             <h4>QUESTION HERE</h4>
-            <select class="chosen-select" id="question8">
+            <select class="chosen-select" id="question8" required>
                 <option value="unanswered" label="Select an Option"></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -105,7 +106,7 @@
             </select>
             <h3>Question 9</h3>
             <h4>QUESTION HERE</h4>
-            <select class="chosen-select" id="question9">
+            <select class="chosen-select" id="question9" required>
                 <option value="unanswered" label="Select an Option"></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -115,7 +116,7 @@
             </select>
             <h3>Question 10</h3>
             <h4>QUESTION HERE</h4>
-            <select class="chosen-select" id="question10">
+            <select class="chosen-select" id="question10" required>
                 <option value="unanswered" label="Select an Option"></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -132,24 +133,39 @@
 <script type="text/javascript">
     $("#submitbutton").on("click", function(){
         dataSend = {
-        name: $("#name").val(),
-        photo: $("#photo").val(),
-        answerArr: 
-            [
-            $("#question1").val(),
-            $("#question2").val(),
-            $("#question3").val(),
-            $("#question4").val(),
-            $("#question5").val(),
-            $("#question6").val(),
-            $("#question7").val(),
-            $("#question8").val(),
-            $("#question9").val(),
-            $("#question10").val()
-            ]
+            name: $("#name").val(),
+            photo: $("#photo").val(),
+            scores: 
+                [
+                    $("#question1").val(),
+                    $("#question2").val(),
+                    $("#question3").val(),
+                    $("#question4").val(),
+                    $("#question5").val(),
+                    $("#question6").val(),
+                    $("#question7").val(),
+                    $("#question8").val(),
+                    $("#question9").val(),
+                    $("#question10").val()
+                ]
         }
-        $.post("/api/friends", dataSend, function(){
-            console.log(dataSend)
+
+        for(let i = 0; i < dataSend.scores.length; i++){
+            if (dataSend.scores[i] === "unanswered"){
+                alert("Please answer all questions")
+                console.log("Please answer all questions")
+                throw err;
+            }
+        }
+
+        $.post("/api/friends", dataSend, function(data){
+            // console.log(dataSend)
+            newDiv = `<div class="container">
+                <img src=${data.photo}>
+                <h1>${data.name}</h1>
+                <h2>Closeness Score: ${data.closenessScore}</h2>
+                </div>`
+            $(".answerDiv").append(newDiv)
         })
     })
     
